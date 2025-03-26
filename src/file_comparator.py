@@ -1,7 +1,7 @@
 import json
 
 class FileDiff:
-    def compare_files(self, file1_path, file2_path):
+    def compare(self, file1_path, file2_path):
         """Compare two files line by line and return differences with line numbers."""
         differences = {"match": False, "file_differences": []}
         try:
