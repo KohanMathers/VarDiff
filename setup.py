@@ -6,7 +6,6 @@ setup(
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=[],
-    tests_require=[],
     description='A Python package for comparing variables and files.',
     author='QTI',
     author_email='kohanmathersmcgonnell@gmail.com',
