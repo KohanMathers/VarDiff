@@ -20,7 +20,7 @@ class VarDiff:
                 "type_b": str(type(b))
             }, indent=4)
         
-        differences = {"match": False, "differences": []}
+        differences = {"differences": []}
 
         if isinstance(a, list) and isinstance(b, list):
             for idx, (item_a, item_b) in enumerate(zip(a, b)):
@@ -32,7 +32,7 @@ class VarDiff:
                     })
             if len(a) != len(b):
                 differences["reason"] = "Lists have different lengths"
-            return json.dumps(differences, indent=4)
+            return False, json.dumps(differences, indent=4)
 
         if isinstance(a, dict) and isinstance(b, dict):
             keys_a = set(a.keys())
@@ -46,8 +46,7 @@ class VarDiff:
                     })
             return json.dumps(differences, indent=4)
 
-        return json.dumps({
-            "match": False,
+        return False, json.dumps({
             "value_a": a,
             "value_b": b
         }, indent=4)

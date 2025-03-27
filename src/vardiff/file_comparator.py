@@ -3,7 +3,7 @@ import json
 class FileDiff:
     def compare(self, file1_path, file2_path):
         """Compare two files line by line and return differences with line numbers."""
-        differences = {"match": False, "file_differences": []}
+        differences = {"file_differences": []}
         try:
             with open(file1_path, 'r') as file1, open(file2_path, 'r') as file2:
                 for lineno, (line1, line2) in enumerate(zip(file1, file2), start=1):
@@ -28,10 +28,9 @@ class FileDiff:
             if not differences["file_differences"]:
                 return True
 
-            return json.dumps(differences, indent=4)
+            return False, json.dumps(differences, indent=4)
 
         except FileNotFoundError as e:
-            return json.dumps({
-                "match": False,
+            return False, json.dumps({
                 "error": str(e)
             }, indent=4)
