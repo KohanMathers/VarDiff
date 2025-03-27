@@ -17,7 +17,7 @@ Compare 2 variables:
 ```py
 import vardiff
 
-comp = VarDiff()
+comp = vardiff.VarDiff()
 
 foo = 123
 bar = 321
@@ -29,7 +29,7 @@ Compare 2 files:
 ```py
 import vardiff
 
-comp = FileDiff()
+comp = vardiff.FileDiff()
 
 foo = 'path/to/your/file1.txt'
 bar = 'path/to/your/file2.txt'

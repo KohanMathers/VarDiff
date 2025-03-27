@@ -14,8 +14,7 @@ class VarDiff:
             return True
         
         if type(a) != type(b):
-            return json.dumps({
-                "match": False,
+            return False, json.dumps({
                 "reason": "Different data types",
                 "type_a": str(type(a)),
                 "type_b": str(type(b))
